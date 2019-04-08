@@ -1,0 +1,67 @@
+
+#fourlist a:hover,#navigation ul li a:hover {
+    color: red;
+
+}
+
+tr td{
+    vertical-align: center;
+}
+.buy_table table{
+    border-top: 2px solid orangered;
+    border-bottom:2px solid orangered ;
+
+}
+.buy_table table tr td{
+    vertical-align: middle;
+    text-align: center;
+
+}
+.buy_table table tr td div{
+    margin-top: 50px;
+}
+.buy_table table tr td input{
+
+    width: 32px;
+}
+.input1{
+    width: 100px;
+    margin-left: 30px;
+    margin-right:-80px;
+
+}
+.input1 input{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    float: left;
+
+}
+
+.buy_table table tr td input.checkbox1{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.buy_table table tr td a:hover{
+    color: red;
+}
+.buy_picture{
+    float: right;
+    margin-right: 26px;
+    margin-top: 50px;
+}
+
+#clearboth{
+    clear: both;
+}
+#footer{
+    width: 1300px;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 130px;
+    margin-left: -90px;
+}

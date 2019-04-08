@@ -1,0 +1,162 @@
+
+#top {
+    width: 1000px;
+    height: 60px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#logo img {
+    width: 122px;
+    height: 62px;
+}
+
+#logo {
+    margin-top: 20px;
+    width: 160px;
+    height: 60px;
+    float: left;
+}
+
+.product h3{
+    font-family: "microsoft yahei";
+}
+
+#find {
+    width: 500px;
+    margin-top: 20px;
+    margin-left: 65px;
+    float: left;
+}
+
+
+#fourlist {
+    float: left;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+#clearboth {
+    clear: both;
+}
+
+
+#left {
+    width: 418px;
+    float: left;
+    margin-right:5px;
+
+}
+
+#left h3 {
+    margin: 10px 60px;
+    align-content: center;
+    text-align: center;
+}
+
+.homeuse, .phone, .history {
+    margin-left: 2px;
+
+}
+
+.homeuse ul li, .phone ul li, .history ul li {
+    margin-left: 30px;
+    margin-top: 10px;
+    list-style: none;
+
+}
+
+.homeuse ul li span, .phone ul li span, .history ul li span {
+    margin-left: 3px;
+}
+
+#center {
+    width: 660px;
+    float: left;
+    padding-left:100px;
+    margin-top: 3px;
+}
+
+.product{
+    position: relative;
+    left:100px;
+}
+
+
+.product_picture {
+    float: left;
+}
+
+.picture_describe {
+    margin-left: 40px;
+}
+
+.picture_describe ul {
+    list-style: none;
+    float: left;
+    margin-top: 30px;
+
+}
+
+.picture_describe ul li {
+    margin-top: 10px;
+}
+
+.buy_product {
+    float: left;
+    margin-top: 75px;
+    margin-left: 550px;
+}
+
+.buy_now{
+    width:178px;
+    height:38px;
+    background-color:#ffeded;
+    border:1px solid #FF0036;
+}
+
+.button{
+    width:178px;
+    height:38px;
+    background-color:#FF0036;
+    border:1px solid #FF0036;
+    font-color:#FFFFFF;
+    margin-left:40px;
+}
+
+
+
+.product_content,
+.product_content2 {
+    width: 658px;
+    float: left;
+    margin-top: 8px;
+}
+
+.product_content2{
+    position: relative;
+    left:20px;
+    font-size:17px;
+}
+
+.product_content label {
+    margin-left: 2px;
+}
+
+.product_content2 ul {
+    margin-top: 3px;
+}
+
+.product_content2 ul li {
+    list-style: none;
+    margin-top: 8px;
+
+}
+
+#footer {
+    width: 1300px;
+    height: 20px;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 90px;
+}

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mick.dao.HistoryInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mick.bean.HistoryInfo">
+    <id column="h_id" jdbcType="INTEGER" property="hId" />
+    <result column="g_time" jdbcType="TIMESTAMP" property="gTime" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="h_states" jdbcType="INTEGER" property="hStates" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    h_id, g_time, u_id, p_id, h_states
+  </sql>
+  <select id="selectByExample" parameterType="com.mick.bean.HistoryInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from history_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from history_info
+    where h_id = #{hId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from history_info
+    where h_id = #{hId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mick.bean.HistoryInfoExample">
+    delete from history_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mick.bean.HistoryInfo">
+    insert into history_info (h_id, g_time, u_id, 
+      p_id, h_states)
+    values (#{hId,jdbcType=INTEGER}, #{gTime,jdbcType=TIMESTAMP}, #{uId,jdbcType=INTEGER}, 
+      #{pId,jdbcType=INTEGER}, #{hStates,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mick.bean.HistoryInfo">
+    insert into history_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hId != null">
+        h_id,
+      </if>
+      <if test="gTime != null">
+        g_time,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="hStates != null">
+        h_states,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hId != null">
+        #{hId,jdbcType=INTEGER},
+      </if>
+      <if test="gTime != null">
+        #{gTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="hStates != null">
+        #{hStates,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mick.bean.HistoryInfoExample" resultType="java.lang.Long">
+    select count(*) from history_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update history_info
+    <set>
+      <if test="record.hId != null">
+        h_id = #{record.hId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gTime != null">
+        g_time = #{record.gTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.uId != null">
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pId != null">
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hStates != null">
+        h_states = #{record.hStates,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update history_info
+    set h_id = #{record.hId,jdbcType=INTEGER},
+      g_time = #{record.gTime,jdbcType=TIMESTAMP},
+      u_id = #{record.uId,jdbcType=INTEGER},
+      p_id = #{record.pId,jdbcType=INTEGER},
+      h_states = #{record.hStates,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mick.bean.HistoryInfo">
+    update history_info
+    <set>
+      <if test="gTime != null">
+        g_time = #{gTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null">
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="hStates != null">
+        h_states = #{hStates,jdbcType=INTEGER},
+      </if>
+    </set>
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mick.bean.HistoryInfo">
+    update history_info
+    set g_time = #{gTime,jdbcType=TIMESTAMP},
+      u_id = #{uId,jdbcType=INTEGER},
+      p_id = #{pId,jdbcType=INTEGER},
+      h_states = #{hStates,jdbcType=INTEGER}
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+</mapper>

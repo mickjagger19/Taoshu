@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mick.dao.ShoppingcarMapper">
+  <resultMap id="BaseResultMap" type="com.mick.bean.Shoppingcar">
+    <id column="s_id" jdbcType="INTEGER" property="sId" />
+    <result column="s_time" jdbcType="TIMESTAMP" property="sTime" />
+    <result column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="s_pcounts" jdbcType="INTEGER" property="sPcounts" />
+    <result column="s_states" jdbcType="INTEGER" property="sStates" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    s_id, s_time, p_id, u_id, s_pcounts, s_states
+  </sql>
+  <select id="selectByExample" parameterType="com.mick.bean.ShoppingcarExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from shoppingcar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from shoppingcar
+    where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shoppingcar
+    where s_id = #{sId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mick.bean.ShoppingcarExample">
+    delete from shoppingcar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mick.bean.Shoppingcar">
+    insert into shoppingcar (s_id, s_time, p_id,
+                             u_id, s_pcounts, s_states
+    )
+    values (#{sId,jdbcType=INTEGER}, #{sTime,jdbcType=TIMESTAMP}, #{pId,jdbcType=INTEGER},
+            #{uId,jdbcType=INTEGER}, #{sPcounts,jdbcType=INTEGER}, #{sStates,jdbcType=INTEGER}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mick.bean.Shoppingcar">
+    insert into shoppingcar
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        s_id,
+      </if>
+      <if test="sTime != null">
+        s_time,
+      </if>
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="sPcounts != null">
+        s_pcounts,
+      </if>
+      <if test="sStates != null">
+        s_states,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sId != null">
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sTime != null">
+        #{sTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="sPcounts != null">
+        #{sPcounts,jdbcType=INTEGER},
+      </if>
+      <if test="sStates != null">
+        #{sStates,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mick.bean.ShoppingcarExample" resultType="java.lang.Long">
+    select count(*) from shoppingcar
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update shoppingcar
+    <set>
+      <if test="record.sId != null">
+        s_id = #{record.sId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sTime != null">
+        s_time = #{record.sTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pId != null">
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.uId != null">
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.sPcounts != null">
+        s_pcounts = #{record.sPcounts,jdbcType=INTEGER},
+      </if>
+      <if test="record.sStates != null">
+        s_states = #{record.sStates,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update shoppingcar
+    set s_id = #{record.sId,jdbcType=INTEGER},
+    s_time = #{record.sTime,jdbcType=TIMESTAMP},
+    p_id = #{record.pId,jdbcType=INTEGER},
+    u_id = #{record.uId,jdbcType=INTEGER},
+    s_pcounts = #{record.sPcounts,jdbcType=INTEGER},
+    s_states = #{record.sStates,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mick.bean.Shoppingcar">
+    update shoppingcar
+    <set>
+      <if test="sTime != null">
+        s_time = #{sTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pId != null">
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="sPcounts != null">
+        s_pcounts = #{sPcounts,jdbcType=INTEGER},
+      </if>
+      <if test="sStates != null">
+        s_states = #{sStates,jdbcType=INTEGER},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mick.bean.Shoppingcar">
+    update shoppingcar
+    set s_time = #{sTime,jdbcType=TIMESTAMP},
+      p_id = #{pId,jdbcType=INTEGER},
+      u_id = #{uId,jdbcType=INTEGER},
+      s_pcounts = #{sPcounts,jdbcType=INTEGER},
+      s_states = #{sStates,jdbcType=INTEGER}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+
+  <!--    public List<Product> getProductInShoppingCar();-->
+  <resultMap id="productInShoppingCar" type="com.mick.bean.Shoppingcar">
+    <id column="s_id" property="sId"/>
+    <result column="s_time" property="sTime"/>
+    <result column="u_id" property="uId"/>
+    <result column="s_pcounts" property="sPcounts"/>
+      <association property="productList" javaType="com.mick.bean.Product" >
+          <id column="p_id" property="pId"/>
+          <result column="p_name" property="pName"/>
+          <result column="p_picture" property="pPicture"/>
+          <result column="p_price" property="pPrice"/>
+          <result column="p_point" property="pPoint"/>
+          <result column="p_counts" property="pCounts"/>
+          <result column="p_time" property="pTime"/>
+      </association>
+  </resultMap>
+
+  <select id="getProductInShoppingCar" resultMap="productInShoppingCar">
+      SELECT s.s_id,s.s_time,s.u_id,s.s_pcounts,p.p_id,p.p_name,p.p_picture,p.p_price,p_point,p.p_counts,p.p_time
+      FROM shoppingcar s INNER JOIN product p on s.p_id=p.p_id
+      WHERE s.u_id=#{uId} AND s.s_states=#{sStates}
+      ORDER BY s.s_time DESC
+  </select>
+
+    <!--    public List<Product> getProductInSumPay();-->
+
+</mapper>

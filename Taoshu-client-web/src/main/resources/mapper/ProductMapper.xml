@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mick.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.mick.bean.Product">
+    <id column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="p_name" jdbcType="VARCHAR" property="pName" />
+    <result column="p_category" jdbcType="VARCHAR" property="pCategory" />
+    <result column="p_picture" jdbcType="VARCHAR" property="pPicture" />
+    <result column="p_oriprice" jdbcType="VARCHAR" property="pOriprice" />
+    <result column="p_price" jdbcType="DOUBLE" property="pPrice" />
+    <result column="p_stock" jdbcType="INTEGER" property="pStock" />
+    <result column="p_intro" jdbcType="VARCHAR" property="pIntro" />
+    <result column="p_time" jdbcType="TIMESTAMP" property="pTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    p_id, p_name, p_category, p_picture, p_oriprice, p_price, p_stock, p_intro, p_time
+  </sql>
+  <select id="selectByExample" parameterType="com.mick.bean.ProductExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where p_id = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where p_id = #{pId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.mick.bean.ProductExample">
+    delete from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.mick.bean.Product">
+    insert into product (p_id, p_name, p_category, 
+      p_picture, p_oriprice, p_price, 
+      p_stock, p_intro, p_time
+      )
+    values (#{pId,jdbcType=INTEGER}, #{pName,jdbcType=VARCHAR}, #{pCategory,jdbcType=VARCHAR}, 
+      #{pPicture,jdbcType=VARCHAR}, #{pOriprice,jdbcType=VARCHAR}, #{pPrice,jdbcType=DOUBLE}, 
+      #{pStock,jdbcType=INTEGER}, #{pIntro,jdbcType=VARCHAR}, #{pTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mick.bean.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pId != null">
+        p_id,
+      </if>
+      <if test="pName != null">
+        p_name,
+      </if>
+      <if test="pCategory != null">
+        p_category,
+      </if>
+      <if test="pPicture != null">
+        p_picture,
+      </if>
+      <if test="pOriprice != null">
+        p_oriprice,
+      </if>
+      <if test="pPrice != null">
+        p_price,
+      </if>
+      <if test="pStock != null">
+        p_stock,
+      </if>
+      <if test="pIntro != null">
+        p_intro,
+      </if>
+      <if test="pTime != null">
+        p_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pId != null">
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pName != null">
+        #{pName,jdbcType=VARCHAR},
+      </if>
+      <if test="pCategory != null">
+        #{pCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="pPicture != null">
+        #{pPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="pOriprice != null">
+        #{pOriprice,jdbcType=VARCHAR},
+      </if>
+      <if test="pPrice != null">
+        #{pPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="pStock != null">
+        #{pStock,jdbcType=INTEGER},
+      </if>
+      <if test="pIntro != null">
+        #{pIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="pTime != null">
+        #{pTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.mick.bean.ProductExample" resultType="java.lang.Long">
+    select count(*) from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update product
+    <set>
+      <if test="record.pId != null">
+        p_id = #{record.pId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pName != null">
+        p_name = #{record.pName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pCategory != null">
+        p_category = #{record.pCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pPicture != null">
+        p_picture = #{record.pPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pOriprice != null">
+        p_oriprice = #{record.pOriprice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pPrice != null">
+        p_price = #{record.pPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="record.pStock != null">
+        p_stock = #{record.pStock,jdbcType=INTEGER},
+      </if>
+      <if test="record.pIntro != null">
+        p_intro = #{record.pIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pTime != null">
+        p_time = #{record.pTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update product
+    set p_id = #{record.pId,jdbcType=INTEGER},
+      p_name = #{record.pName,jdbcType=VARCHAR},
+      p_category = #{record.pCategory,jdbcType=VARCHAR},
+      p_picture = #{record.pPicture,jdbcType=VARCHAR},
+      p_oriprice = #{record.pOriprice,jdbcType=VARCHAR},
+      p_price = #{record.pPrice,jdbcType=DOUBLE},
+      p_stock = #{record.pStock,jdbcType=INTEGER},
+      p_intro = #{record.pIntro,jdbcType=VARCHAR},
+      p_time = #{record.pTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mick.bean.Product">
+    update product
+    <set>
+      <if test="pName != null">
+        p_name = #{pName,jdbcType=VARCHAR},
+      </if>
+      <if test="pCategory != null">
+        p_category = #{pCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="pPicture != null">
+        p_picture = #{pPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="pOriprice != null">
+        p_oriprice = #{pOriprice,jdbcType=VARCHAR},
+      </if>
+      <if test="pPrice != null">
+        p_price = #{pPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="pStock != null">
+        p_stock = #{pStock,jdbcType=INTEGER},
+      </if>
+      <if test="pIntro != null">
+        p_intro = #{pIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="pTime != null">
+        p_time = #{pTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mick.bean.Product">
+    update product
+    set p_name = #{pName,jdbcType=VARCHAR},
+      p_category = #{pCategory,jdbcType=VARCHAR},
+      p_picture = #{pPicture,jdbcType=VARCHAR},
+      p_oriprice = #{pOriprice,jdbcType=VARCHAR},
+      p_price = #{pPrice,jdbcType=DOUBLE},
+      p_stock = #{pStock,jdbcType=INTEGER},
+      p_intro = #{pIntro,jdbcType=VARCHAR},
+      p_time = #{pTime,jdbcType=TIMESTAMP}
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+
+  <resultMap id="getProductAllResultMap" type="com.mick.bean.Product3">
+    <id column="p3id" property="p3Id"/>
+    <result column="p3name" property="p3Name"/>
+    <collection property="list2" ofType="com.mick.bean.Product2">
+      <id column="p2id" property="p2Id"/>
+      <result column="p2name" property="p2Name"/>
+      <collection property="list1" ofType="com.mick.bean.Product">
+        <id column="p_id" property="pId"/>
+        <result column="p_name" property="pName"/>
+        <result column="p_picture" property="pPicture"/>
+        <result column="p_price" property="pPrice"/>
+        <result column="p_oriprice" property="pOriprice"/>
+        <result column="p_stock" property="pStock"/>
+        <result column="p_name" property="pName"/>
+        <result column="p_intro" property="pIntro"/>
+        <result column="p_category" property="pCategory"/>
+      </collection>
+    </collection>
+
+  </resultMap>
+
+  <select id="getProductAll" resultMap="getProductAllResultMap">
+    SELECT p1.p_id,p1.p_name,p1.p_picture,p1.p_price,
+           p2.p_id p2id,p2.p_name p2name,p3.p_id p3id,p3.p_name p3name
+    FROM product p1 INNER JOIN product p2
+                    INNER JOIN product p3
+  </select>
+
+  <!--    public List<Product> getNewProduct();-->
+  <select id="getNewProduct" resultType="com.mick.bean.Product">
+    SELECT * FROM product WHERE p_id>20 ORDER BY p_time DESC
+  </select>
+
+  <!--public List<Product> getSpecialOffer();-->
+  <select id="getSpecialOffer"  resultType="com.mick.bean.Product">
+      SELECT * FROM product
+      WHERE p_id >= (SELECT floor(RAND() * (SELECT MAX(p_id) FROM product)))
+      ORDER BY p_id
+  </select>
+
+  <!--public List<Product> getProductionByKeyworks(String keyword);-->
+  <!--<select id="getProductionByKeyworks" resultMap="BaseResultMap" parameterType="string">-->
+  <!--#     SELECT * FROM product WHERE p_name LIKE CONCAT('%'+#{keyword}+'%')-->
+  <!--#     SELECT * FROM product WHERE p_name LIKE '%${_parameter}%'-->
+  <!--SELECT * FROM product-->
+  <!--<where>-->
+  <!--<if test="_parameter != null">-->
+  <!--p_name LIKE #{keyword};-->
+  <!--</if>-->
+  <!--</where>-->
+
+
+  <!--<select id="getProductionByKeyworks" resultType="com.mick.bean.Product">-->
+  <!--SELECT * FROM product WHERE p_price IS NOT NULL AND p_name like #{keyworks};-->
+  <!--#    SELECT * FROM product WHERE p_price IS NOT NULL AND p_name like  '%${keyword}%';-->
+  <!--</select>-->
+
+
+  <select id="getNumberByKeyword" resultType="java.lang.Integer">
+    SELECT COUNT(*) FROM product WHERE p_name like CONCAT('%',#{keyworks,jdbcType=VARCHAR},'%')
+  </select>
+
+
+  <select id="getProductionByKeyword" resultType="com.mick.bean.Product">
+    SELECT * FROM product WHERE p_name like  #{keyword}
+  </select>
+  <select id="getProductionBypId" resultType="com.mick.bean.Product">
+    SELECT * FROM product WHERE p_id = #{pId}
+  </select>
+
+  <select id="getRandomProduct" resultType="com.mick.bean.Product">
+    SELECT * FROM product order by RAND() LIMIT 0,#{i}
+  </select>
+
+  <!--<select id="getProductionByKeyword" resultType="com.mick.bean.Product">-->
+  <!--SELECT * FROM product WHERE MATCH(p_name) AGAINST (#{keyworks})-->
+  <!--</select>-->
+
+
+</mapper>

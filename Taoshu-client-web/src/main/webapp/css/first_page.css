@@ -1,0 +1,247 @@
+
+
+#leftnavigation{
+	width: 40px;
+	margin-top: 300px;
+	margin-left: 60px;
+	position: fixed;
+	float: left;
+}
+#rightnavigation{
+	width: 40px;
+	margin-top: 500px;
+	margin-left: 1430px;
+	position: fixed;
+	float: right;
+
+}
+#leftnavigation ul li{
+	text-align: center;
+	background-color: silver;
+	border: 1px solid white;
+	list-style: none;
+}
+#rightnavigation ul li {
+	border: 1px solid white;
+	list-style: none;
+
+
+}
+#globa{
+	width: 100%;
+	background-color:#FFFFFF;
+	float: left;
+}
+#top{
+	width: 1000px;
+	height:60px;
+	text-align: center;
+	margin: 0 auto;
+}
+#logo img{
+	margin-top: 4px;
+	width: 122px;
+	height: 62px;
+}
+
+#logo{
+	width: 160px;
+	height:60px;
+	float: left;
+}
+/*.brand .label { form-search
+
+	position:relative;
+	left:10px;
+	top:-3px;
+	font-weight:normal;
+	font-size:9px;
+	background:#666;
+	-webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7);
+	box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.7);
+}*/
+#find{
+	width: 500px;
+	margin-top: 20px;
+	margin-left: 75px;
+	float: left;
+	top:10px;
+}
+/*#find input{
+	width: 260px;
+	height:25px;
+}*/
+/*#find button{
+	width: 70px;
+	height: 25px;
+
+	/!*margin-top: 8px;*!/
+	margin-left: -5px;
+	color: orange;
+
+}*/
+#fourlist{
+	float: left;
+	margin-left:60px;
+	margin-top: 30px;
+}
+#clearboth{
+	clear: both;
+}
+#navigation{
+	width: 100%;
+	height: 50px;
+	background-color: 	#686868;
+
+}
+#navigation ul {
+	margin:25px 50px 20px 50px ;
+}
+#navigation ul li{
+	font-size: 18px;
+	list-style: none;
+	margin: 15px 50px 50px 50px;
+	float: left;
+	width:90px;
+}
+#navigation ul li a:hover{
+	background-color: #888888 ;
+}
+
+#navigation ul li a{
+	margin-top: 30px;
+	color: #FFFFFF;
+}
+
+#middle{
+	width: 100%;
+	margin: 0 auto;
+}
+#left{
+	width:350px ;
+
+
+	float: left;
+	margin-top: 2px;
+	border: 2px solid white
+
+}
+
+#center{
+	height:700px;
+}
+
+#left h3{
+	margin: 10px 60px;
+	align-content: center;
+	text-align: center;
+}
+.homeuse,.phone,.history{
+	margin-left: 2px;
+
+
+}
+.homeuse ul li,.phone ul li,.history ul li{
+	margin-left: 30px;
+	margin-top: 10px;
+	list-style: none;
+
+}
+.homeuse ul li span,.phone ul li span,.history ul li span{
+	margin-left: 3px;
+}
+
+
+.production{
+	width: 350px;
+	margin-top: 0px;
+	margin-left: 0px;
+	border: 2px solid white;
+}
+.history{
+	width: 350px;
+	margin-top: 0px;
+	margin-left: 0px;
+
+	border: 2px solid white;
+
+}
+.history ul li{
+
+}
+.history ul li a.turnup{
+
+
+	float: left;
+	margin-top: 16px;
+}
+
+
+.find_commodity table{
+
+	float: left;
+	margin-left: 20px;
+	border: 2px solid #F0F0F0;
+}
+
+
+
+.find_commodity p{
+	margin-left:5px;
+	margin-top:10px;
+}
+
+
+.pagination{
+	float: left;
+}
+.pager{
+	float: left;
+}
+.tejia span{
+
+	margin-top: 20px;
+	margin-left: 5px;
+}
+.tejia span{
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+.tejia h4{
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+#right{
+	width:350px ;
+
+	background-color:	#E0E0E0;
+
+	float: left;
+	border: 2px solid white;
+
+}
+.news{
+	/*height: 250px;*/
+	margin-top: 0px;
+	margin-left: 0px;
+	border: 2px solid white;
+}
+
+.news ul li{
+	list-style: none;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+#footer{
+	width: 1300px;
+	height: 20px;
+	border: 1px solid white;
+
+	text-align: center;
+	font-size: 13px;
+}
+
+

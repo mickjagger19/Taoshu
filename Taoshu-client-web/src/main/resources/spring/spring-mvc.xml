@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+
+    <dubbo:annotation package="com.mick.controller" />
+
+    <context:component-scan base-package="com.mick.client" />
+
+
+    <context:property-placeholder location="classpath:properties/*.properties"/>
+
+    <bean id="jedisClientPool" class="com.mick.common.jedis.JedisClientPool">
+        <property name="jedisPool" ref="jedisPool"/>
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="host" value="127.0.0.1"/>
+        <constructor-arg name="port" value="6379"/>
+    </bean>
+
+    <!--<context:component-scan base-package="com.mick" use-default-filters="false">-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>-->
+        <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    <!--</context:component-scan>-->
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <!--视图解析器-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+    </bean>
+
+    <!--配置上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="5242440"/>
+    </bean>
+
+
+    <dubbo:application name="Taoshu-client-web"/>
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+
+
+    <!--拦截器-->
+    <mvc:interceptors>
+       <!--可配置多个拦截器,顺序执行-->
+       <mvc:interceptor>
+           <!--如果不配置或/*,将拦截所有的Controller-->
+           <mvc:mapping path="/**"/>
+           <bean class="com.mick.client.interceptor.RateLimiterInterceptor"/>
+       </mvc:interceptor>
+   </mvc:interceptors>
+</beans>

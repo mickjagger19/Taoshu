@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mick.search.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.mick.manager.pojo.Product">
+        <id column="p_id" jdbcType="INTEGER" property="pId" />
+        <result column="p_name" jdbcType="VARCHAR" property="pName" />
+        <result column="p_category" jdbcType="VARCHAR" property="pCategory" />
+        <result column="p_picture" jdbcType="VARCHAR" property="pPicture" />
+        <result column="p_oriprice" jdbcType="VARCHAR" property="pOriprice" />
+        <result column="p_price" jdbcType="DOUBLE" property="pPrice" />
+        <result column="p_stock" jdbcType="INTEGER" property="pStock" />
+        <result column="p_intro" jdbcType="VARCHAR" property="pIntro" />
+        <result column="p_time" jdbcType="TIMESTAMP" property="pTime" />
+    </resultMap>
+    <select id="getProductList" resultMap="BaseResultMap">
+        SELECT * FROM product
+    </select>
+    <select id="getProductById" resultType="com.mick.manager.pojo.Product">
+        SELECT * FROM product WHERE p_id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,102 @@
+body {
+    background: #ABDFF6;
+}
+
+#wrapper {
+    height:100vh;
+    background-image: url("../images/background.png");
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-color: #b8e5f8;
+    background-size: cover;
+    width: 100%;
+    overflow: auto;
+}
+
+#middle {
+    margin-top: 100px;
+}
+
+.SignFlowHeader {
+    width: 432px;
+}
+
+#uname,
+#uaccount,
+#pwd,
+#pwd2,
+#email,
+#tel {
+
+    width: 90%;
+    margin-left: 0%;
+
+}
+
+
+#argee_reg {
+    margin-left: 20px;
+}
+
+.login {
+    width: 860px;
+    margin: 70px auto;
+
+}
+
+.forms {
+    margin: 0 auto;
+    width: 30%;
+    background-color: #FFFFFF;
+}
+
+.form_group {
+    margin: 0 auto;
+}
+
+.logo_container {
+    background-color: #FFFFFF;
+    width: 30%;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.logo {
+    width: 50%;
+    margin-top: 20px;
+}
+
+
+.forms h2 {
+    font-size: 31px;
+    height: 70px;
+    margin-left: 0px;
+    margin-top: 2px;
+}
+
+.forms h2 span {
+    float: left;
+    margin-top: 12px;
+    margin-left: 15px;
+
+}
+
+
+.input_information {
+    width: 360px;
+    color: silver;
+    background-color: darkorange;
+    text-align: center;
+    float: left;
+    margin-left: 2px;
+}
+
+.login button {
+    width: 166px;
+    height: 28px;
+    margin-top: 36px;
+    background-color: #C0C0C0;
+    font-weight: bold;
+    color: #686868;
+}
