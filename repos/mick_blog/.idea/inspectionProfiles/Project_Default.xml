@@ -1,0 +1,102 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HttpUrlsUsage" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="JupyterPackageInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyClassHasNoInitInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyDefaultArgumentInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyIncorrectDocstringInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyMethodMayBeStaticInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="52">
+            <item index="0" class="java.lang.String" itemvalue="torch" />
+            <item index="1" class="java.lang.String" itemvalue="pandas" />
+            <item index="2" class="java.lang.String" itemvalue="tqdm" />
+            <item index="3" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="4" class="java.lang.String" itemvalue="sns" />
+            <item index="5" class="java.lang.String" itemvalue="numpy" />
+            <item index="6" class="java.lang.String" itemvalue="torchvision" />
+            <item index="7" class="java.lang.String" itemvalue="scikit-learn" />
+            <item index="8" class="java.lang.String" itemvalue="automl" />
+            <item index="9" class="java.lang.String" itemvalue="cuml" />
+            <item index="10" class="java.lang.String" itemvalue="cuda" />
+            <item index="11" class="java.lang.String" itemvalue="autogluon" />
+            <item index="12" class="java.lang.String" itemvalue="setuptools" />
+            <item index="13" class="java.lang.String" itemvalue="panel" />
+            <item index="14" class="java.lang.String" itemvalue="zlib" />
+            <item index="15" class="java.lang.String" itemvalue="openssl" />
+            <item index="16" class="java.lang.String" itemvalue="pip" />
+            <item index="17" class="java.lang.String" itemvalue="kuma_utils" />
+            <item index="18" class="java.lang.String" itemvalue="packaging" />
+            <item index="19" class="java.lang.String" itemvalue="autoviz" />
+            <item index="20" class="java.lang.String" itemvalue="emoji" />
+            <item index="21" class="java.lang.String" itemvalue="platformdirs" />
+            <item index="22" class="java.lang.String" itemvalue="wheel" />
+            <item index="23" class="java.lang.String" itemvalue="zipp" />
+            <item index="24" class="java.lang.String" itemvalue="iterative-stratification" />
+            <item index="25" class="java.lang.String" itemvalue="cryptography" />
+            <item index="26" class="java.lang.String" itemvalue="sweetviz" />
+            <item index="27" class="java.lang.String" itemvalue="attrs" />
+            <item index="28" class="java.lang.String" itemvalue="Pillow" />
+            <item index="29" class="java.lang.String" itemvalue="scipy" />
+            <item index="30" class="java.lang.String" itemvalue="six" />
+            <item index="31" class="java.lang.String" itemvalue="haversine" />
+            <item index="32" class="java.lang.String" itemvalue="tornado" />
+            <item index="33" class="java.lang.String" itemvalue="joblib" />
+            <item index="34" class="java.lang.String" itemvalue="missingno" />
+            <item index="35" class="java.lang.String" itemvalue="pandas-profiling" />
+            <item index="36" class="java.lang.String" itemvalue="pygam" />
+            <item index="37" class="java.lang.String" itemvalue="plotly" />
+            <item index="38" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="39" class="java.lang.String" itemvalue="catboost" />
+            <item index="40" class="java.lang.String" itemvalue="kaggle" />
+            <item index="41" class="java.lang.String" itemvalue="seaborn" />
+            <item index="42" class="java.lang.String" itemvalue="jupyter" />
+            <item index="43" class="java.lang.String" itemvalue="holidays" />
+            <item index="44" class="java.lang.String" itemvalue="colorama" />
+            <item index="45" class="java.lang.String" itemvalue="future" />
+            <item index="46" class="java.lang.String" itemvalue="statsmodels" />
+            <item index="47" class="java.lang.String" itemvalue="lightgbm" />
+            <item index="48" class="java.lang.String" itemvalue="xgboost" />
+            <item index="49" class="java.lang.String" itemvalue="pyparsing" />
+            <item index="50" class="java.lang.String" itemvalue="Cython" />
+            <item index="51" class="java.lang.String" itemvalue="optuna" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E266" />
+          <option value="E741" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N812" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyProtectedMemberInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyRedeclarationInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyShadowingNamesInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnboundLocalVariableInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="str.__or__" />
+          <option value="torch.nn.functional._canonical_mask" />
+          <option value="torch.nn.functional.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
